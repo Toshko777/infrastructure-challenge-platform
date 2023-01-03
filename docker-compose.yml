@@ -8,7 +8,7 @@ services:
     # default user is "postgres"
       POSTGRES_PASSWORD: admin
     ports:
-      - "5432:5432"
+      - "5433:5432"
     networks: 
       - fullstack-tool-network
 

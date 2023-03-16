@@ -28,6 +28,8 @@ services:
     networks:
       - fullstack-tool-network
 
+  #Backend
+  #Frontend
 
 networks:
   fullstack-tool-network:

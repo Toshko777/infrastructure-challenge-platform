@@ -8,13 +8,13 @@ services:
     # default user is "postgres"
       POSTGRES_PASSWORD: admin
     ports:
-      - "5433:5432"
+      - "5432:5432"
     networks: 
       - fullstack-tool-network
 
   # when connecting to postgres use as "hostname/adress" - "postgres"
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:latest
     container_name: pgadmin4
     links:
       - postgres
@@ -28,6 +28,20 @@ services:
     networks:
       - fullstack-tool-network
 
+  # challenge-platform-backend:
+  #   image: challenge-platform-backend:latest
+  #   container_name: challenge-platform
+  #   ports:
+  #     - "8080:8080"
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - postgres
+  #   links:
+  #     - postgres
+  #   networks:
+  #     - fullstack-tool-network
+
+  # challenge-platform-frontend:
 
 networks:
   fullstack-tool-network:

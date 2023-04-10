@@ -28,20 +28,32 @@ services:
     networks:
       - fullstack-tool-network
 
-  # challenge-platform-backend:
-  #   image: challenge-platform-backend:latest
-  #   container_name: challenge-platform
-  #   ports:
-  #     - "8080:8080"
-  #   restart: unless-stopped
-  #   depends_on:
-  #     - postgres
-  #   links:
-  #     - postgres
-  #   networks:
-  #     - fullstack-tool-network
+  challenge-platform-backend:
+    image: challenge-platform-backend:latest
+    container_name: backend
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    networks:
+      - fullstack-tool-network
 
   # challenge-platform-frontend:
+  #   image: challenge-platform-frontend:latest
+  #   container_name: frontend
+  #   build: ../angular-project-template/
+  #   ports:
+  #     - "4200:80"
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - challenge-platform-backend
+  #   links:
+  #     - challenge-platform-backend
+  #   networks:
+  #     - fullstack-tool-network
 
 networks:
   fullstack-tool-network:
